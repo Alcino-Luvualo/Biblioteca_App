@@ -56,3 +56,8 @@ function displaybook() {
 
   addEventListener();
 }
+
+addBookToLibrary("O Hobbit", "J.R.R. Tolkien", 310, true);
+addBookToLibrary("1984", "George Orwell", 328, false);
+addBookToLibrary("Dom Casmurro", "Machado de Assis", 256, true);
+addBookToLibrary("O Pequeno Príncipe", "Antoine de Saint-Exupéry", 96, false);
