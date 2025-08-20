@@ -14,6 +14,11 @@ class Book {
   toggleRead() {
     this.read = !this.read;
   }
+
+  info() {
+    const readStatus = this.read ? "Já foi lido" : "Ainda não foi lido";
+    return `${this.title} por ${this.author}, ${this.pages} páginas, ${readStatus}`;
+  }
 }
 function addBookToLibrary(title, author, pages, read) {
   const novoLivro = new Book(title, author, pages, read);
