@@ -14,7 +14,7 @@ class Book {
     this.pages = pages;
     this.read = read;
   }
-  toggleRead() {
+  toggleReadStatus() {
     this.read = !this.read;
   }
 
