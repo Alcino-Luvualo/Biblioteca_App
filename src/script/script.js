@@ -107,3 +107,22 @@ function toggleBookReadStatus(bookId){
   }
 }
 
+
+function addBookEventListener() {
+  const removeButtons = document.querySelectorAll(".remove-book-btn");
+
+  removeButtons.forEach(button => {
+    button.addEventListener("click", function () {
+      const bookId = this.getAttribute("data-id");
+      toggleBookReadStatus(bookId)
+    })
+  })
+
+  const toggleButtons = document.querySelectorAll(".toggle-read-btn");
+  toggleButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const bookId = this.getAttribute("data-id");
+      toggleBookReadStatus(bookId);
+    })
+  })
+}
