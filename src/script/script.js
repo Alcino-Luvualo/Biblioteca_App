@@ -26,10 +26,10 @@ class Book {
 function addBookToLibrary(title, author, pages, read) {
   const novoLivro = new Book(title, author, pages, read);
   myLibrary.push(novoLivro);
-  displaybook();
+  displayBooks();
 }
 
-function displaybook() {
+function displayBooks() {
   livros.innerHTML = "";
 
   myLibrary.forEach((book) => {
@@ -85,3 +85,15 @@ bookForm.addEventListener("submit", (event) => {
 
   closeModal();
 })
+
+function removeBookFromLibrary(bookId) {
+  const bookIndex = myLibrary.findIndex(book => book.id === bookId)
+
+  if (bookIndex !== -1 ) {
+    myLibrary.splice(bookId, 1)
+
+    displayBooks();
+  }
+}
+
+
