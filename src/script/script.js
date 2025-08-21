@@ -97,3 +97,13 @@ function removeBookFromLibrary(bookId) {
 }
 
 
+function toggleBookReadStatus(bookId){
+
+  const book = myLibrary.findIndex(book => book.id === bookId);
+
+  if (book) {
+    book.toggleReadStatus();
+    displayBooks();
+  }
+}
+
