@@ -90,7 +90,7 @@ function removeBookFromLibrary(bookId) {
   const bookIndex = myLibrary.findIndex(book => book.id === bookId)
 
   if (bookIndex !== -1 ) {
-    myLibrary.splice(bookId, 1)
+    myLibrary.splice(bookIndex, 1)
 
     displayBooks();
   }
@@ -99,7 +99,7 @@ function removeBookFromLibrary(bookId) {
 
 function toggleBookReadStatus(bookId){
 
-  const book = myLibrary.findIndex(book => book.id === bookId);
+  const book = myLibrary.find(book => book.id === bookId);
 
   if (book) {
     book.toggleReadStatus();
@@ -114,15 +114,19 @@ function addBookEventListener() {
   removeButtons.forEach(button => {
     button.addEventListener("click", function () {
       const bookId = this.getAttribute("data-id");
-      toggleBookReadStatus(bookId)
+      removeBookFromLibrary(bookId)
     })
   })
 
   const toggleButtons = document.querySelectorAll(".toggle-read-btn");
   toggleButtons.forEach(button => {
     button.addEventListener("click", () => {
-      const bookId = this.getAttribute("data-id");
+      const bookId = button.getAttribute("data-id");
       toggleBookReadStatus(bookId);
     })
   })
 }
+addBookToLibrary("O Hobbit", "J.R.R. Tolkien", 310, true);
+addBookToLibrary("1984", "George Orwell", 328, false);
+addBookToLibrary("Dom Casmurro", "Machado de Assis", 256, true);
+addBookToLibrary("O Pequeno Príncipe", "Antoine de Saint-Exupéry", 96, false);
